@@ -1,0 +1,105 @@
+<div>
+    <div>
+      <mat-form-field>
+        <mat-label>Order Code</mat-label>
+        <input
+          matInput
+          type="text"
+          required
+          [(ngModel)]="orderModel.orderCode"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="orderModel.orderDescription"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>EORI</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="orderModel.eoriCode"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+    </div>
+  
+    <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Delivery date</mat-label>
+          <input matInput [matDatepicker]="picker" 
+          [(ngModel)]="orderModel.deliveryDate"
+          [ngModelOptions]="{ standalone: true }"/>
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+ 
+    <mat-form-field appearance="fill">
+      <mat-label>Pickup address :</mat-label>
+      <select [(ngModel)]="orderModel.pickupAddressId" matNativeControl required>
+        <option *ngFor="let address of pickupAddresses" [value]="address.id">
+          {{ address.addressName }}
+        </option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Delivery address :</mat-label>
+        <select [(ngModel)]="orderModel.deliveryAddressId" matNativeControl required>
+          <option *ngFor="let address of deliveryAddresses" [value]="address.id">
+            {{ address.addressName }}
+          </option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Customer :</mat-label>
+        <select [(ngModel)]="orderModel.customerId" matNativeControl required>
+          <option *ngFor="let customer of customers" [value]="customer.id">
+            {{ customer.name }}
+          </option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Product :</mat-label>
+        <select [(ngModel)]="orderModel.productId" matNativeControl required>
+          <option *ngFor="let product of products" [value]="product.id">
+            {{ product.name }}
+          </option>
+        </select>
+      </mat-form-field>
+  </div>
+  
+  <div>
+      <span *ngIf="hasErrors" style="color: red;">There are missing fields, please complete them.</span>
+  </div>
+  
+  <div>
+    <button
+      mat-button
+      color="primary"
+      (click)="register()"
+      class="btn btn-success"
+    >
+      Register
+    </button>
+  
+    <button mat-button color="primary" (click)="close()" class="btn btn-success">
+      Close
+    </button>
+  </div>
+  

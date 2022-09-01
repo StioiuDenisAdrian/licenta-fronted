@@ -1,0 +1,81 @@
+<div>
+  <div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        type="text"
+        required
+        [(ngModel)]="customerModel.name"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="customerModel.description"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Phone Number</mat-label>
+      <input
+        matInput
+        type="text"
+        required
+        [(ngModel)]="customerModel.phoneNumber"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <div>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          required
+          [(ngModel)]="customerModel.email"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </div>
+      <div></div>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Address :</mat-label>
+    <select [(ngModel)]="customerModel.addressId" matNativeControl required>
+      <option *ngFor="let address of addressSelectModels" [value]="address.id">
+        {{ address.addressName }}
+      </option>
+    </select>
+  </mat-form-field>
+</div>
+
+<div>
+    <span *ngIf="hasErrors" style="color: red;">There are missing fields, please complete them.</span>
+</div>
+
+<div>
+  <button
+    mat-button
+    color="primary"
+    (click)="register()"
+    class="btn btn-success"
+  >
+    Register
+  </button>
+
+  <button mat-button color="primary" (click)="close()" class="btn btn-success">
+    Close
+  </button>
+</div>

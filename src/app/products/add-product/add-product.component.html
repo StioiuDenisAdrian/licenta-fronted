@@ -1,0 +1,107 @@
+<div>
+  <div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        type="text"
+        required
+        [(ngModel)]="productModel.name"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        type="text"
+        required
+        [(ngModel)]="productModel.description"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Convention :</mat-label>
+      <select
+        [(ngModel)]="productModel.productConventionId"
+        matNativeControl
+        required
+      >
+        <option *ngFor="let convention of conventions" [value]="convention.id">
+          {{ convention.conventionName }}
+        </option>
+      </select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Days to deliver</mat-label>
+      <input
+        matInput
+        type="number"
+        required
+        [(ngModel)]="productModel.daysToDeliver"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Weight</mat-label>
+      <input
+        matInput
+        type="number"
+        required
+        [(ngModel)]="productModel.weight"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Material</mat-label>
+      <input
+        matInput
+        type="text"
+        required
+        [(ngModel)]="productModel.material"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <span *ngIf="hasErrors" style="color: red"
+      >There are missing fields, please complete them.</span
+    >
+  </div>
+
+  <div>
+    <button
+      mat-button
+      color="primary"
+      (click)="register()"
+      class="btn btn-success"
+    >
+      Register
+    </button>
+
+    <button
+      mat-button
+      color="primary"
+      (click)="close()"
+      class="btn btn-success"
+    >
+      Close
+    </button>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Country :</mat-label>
+    <select [(ngModel)]="addressModel.countryId" matNativeControl required>
+      <option *ngFor="let country of countries" [value]="country.id">
+        {{ country.name }}
+      </option>
+    </select>
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field>
+    <mat-label>City</mat-label>
+    <input
+      matInput
+      type="text"
+      required
+      [(ngModel)]="addressModel.city"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field>
+    <mat-label>Street</mat-label>
+    <input
+      matInput
+      type="text"
+      required
+      [(ngModel)]="addressModel.street"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field>
+    <mat-label>Street Number</mat-label>
+    <input
+      matInput
+      type="text"
+      required
+      [(ngModel)]="addressModel.streetNumber"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field>
+    <div>
+      <mat-label>Postal Code</mat-label>
+      <input
+        matInput
+        type="text"
+        required
+        [(ngModel)]="addressModel.postalCode"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div></div>
+  </mat-form-field>
+</div>
+
+<div>
+  <button
+    mat-button
+    color="primary"
+    (click)="register()"
+    class="btn btn-success"
+  >
+    Register
+  </button>
+
+  <button mat-button color="primary" (click)="close()" class="btn btn-success">
+    Close
+  </button>
+</div>

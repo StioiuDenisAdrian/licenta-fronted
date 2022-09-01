@@ -1,0 +1,18 @@
+<p *ngIf="isAuthenticated">
+  <mat-toolbar color="primary">
+    <span>Menu</span>
+    <span
+      class="profile-section"
+      *ngIf="canViewClients"
+      (click)="navigateToUsersDashboard()"
+      >Users</span
+    >
+    <span *ngIf="canViewAddresses" (click)="navigateToAddressDashboard()" class="profile-section">Addresses</span>
+    <span *ngIf="canViewCustomers" (click)="navigateToCustomerDashboard()" class="profile-section">Customers</span>
+    <span *ngIf="canViewConventions" (click)="navigateToConventionDashboard()" class="profile-section">Product conventions</span>
+    <span *ngIf="canViewProducts" (click)="navigateToProductDashboard()" class="profile-section">Products</span>
+    <span *ngIf="canViewOrders" (click)="navigateToOrderDashboard()" class="profile-section">Orders</span>
+    <span class="spacer"></span>
+    <span class="logout" (click)="logout()">Logout</span>
+  </mat-toolbar>
+</p>

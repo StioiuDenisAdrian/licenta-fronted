@@ -1,0 +1,127 @@
+<div class="mat-elevation-z8">
+  <div>
+    <mat-form-field>
+      <mat-label>Order Code</mat-label>
+      <input
+        matInput
+        placeholder="Ex. 1234"
+        [(ngModel)]="orderFilter.orderCode"
+        [ngModelOptions]="{ standalone: true }"
+        #input
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Product Name</mat-label>
+      <input
+        matInput
+        placeholder="Ex. Product"
+        [(ngModel)]="orderFilter.productName"
+        [ngModelOptions]="{ standalone: true }"
+        #input
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Customer name</mat-label>
+      <input
+        matInput
+        placeholder="Ex. customer"
+        [(ngModel)]="orderFilter.customerName"
+        [ngModelOptions]="{ standalone: true }"
+        #input
+      />
+    </mat-form-field>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>State :</mat-label>
+        <select [(ngModel)]="orderFilter.orderState" matNativeControl>
+          <option value="Registered">Registered</option>
+          <option value="Picked">Picked</option>
+          <option value="In transit">In transit</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Finished">Finished</option>
+        </select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter">
+      <button
+        mat-button
+        color="primary"
+        (click)="applyFilters()"
+        class="btn btn-success"
+      >
+        Apply filters
+      </button>
+
+      <button
+        mat-button
+        color="primary"
+        (click)="clearFilters()"
+        class="btn btn-success"
+      >
+        Clear filters
+      </button>
+    </div>
+  </div>
+
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="orderCode">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Code</th>
+      <td mat-cell *matCellDef="let row">{{ row.orderCode }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="productCode">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.productName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="customerName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.customerName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderState">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Order State</th>
+      <td mat-cell *matCellDef="let row">{{ row.orderStateName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let row">
+        <mat-icon (click)="edit(row.id)">edit</mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="errors">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let row">
+        <mat-icon (click)="displayErrors(row.id, row.errors)">error</mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="register">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <mat-icon (click)="register()">group_add</mat-icon>
+      </th>
+      <td mat-cell *matCellDef="let row"></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data found</td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [length]="length"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of orders"
+  ></mat-paginator>
+</div>

@@ -1,0 +1,126 @@
+<div>
+    <div>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          required
+          [(ngModel)]="conventionModel.conventionName"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="conventionModel.conventionDescription"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>National Code</mat-label>
+        <input
+          matInput
+          type="text"
+          required
+          [(ngModel)]="conventionModel.nationalCode"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <div>
+        <mat-form-field>
+          <mat-label>Commodity Code</mat-label>
+          <input
+            matInput
+            type="text"
+            required
+            [(ngModel)]="conventionModel.commodityCode"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Taric Code</mat-label>
+          <input
+            matInput
+            type="text"
+            required
+            [(ngModel)]="conventionModel.taricCode"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Tunnel Code</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="conventionModel.tunnelCode"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+      </div>
+  
+      <div>
+        <mat-form-field>
+          <mat-label>Packing group</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="conventionModel.packingGroup"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+  
+        <mat-checkbox [(ngModel)]="conventionModel.isAdr">Is Adr</mat-checkbox>
+  
+        <mat-checkbox [(ngModel)]="conventionModel.isHalal"
+          >Is Halal</mat-checkbox
+        >
+      </div>
+  
+      <div>
+        <mat-checkbox [(ngModel)]="conventionModel.isKosher"
+          >Is Kosher</mat-checkbox
+        >
+  
+        <mat-checkbox [(ngModel)]="conventionModel.isInflamable"
+          >Is Inflamable</mat-checkbox
+        >
+      </div>
+    </div>
+  
+    <div>
+      <span *ngIf="hasErrors" style="color: red"
+        >There are missing fields, please complete them.</span
+      >
+    </div>
+  
+    <div>
+      <button
+        mat-button
+        color="primary"
+        (click)="register()"
+        class="btn btn-success"
+      >
+        Edit
+      </button>
+  
+      <button
+        mat-button
+        color="primary"
+        (click)="close()"
+        class="btn btn-success"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+  
