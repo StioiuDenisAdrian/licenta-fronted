@@ -7,7 +7,7 @@ import { Country } from '../models/country.model';
   providedIn: 'root'
 })
 export class CommonService {
-  private source: string = 'https://localhost:44390/api/countries/';
+  private source: string = 'https://licenta-backend20220901215941.azurewebsites.net/api/countries/';
 
   constructor(private httpClient: HttpClient) { }
   

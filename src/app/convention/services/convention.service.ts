@@ -9,7 +9,7 @@ import { ConventionModel } from '../models/convention.model';
   providedIn: 'root'
 })
 export class ConventionService {
-  private source: string = 'https://localhost:44390/api/conventions/';
+  private source: string = 'https://licenta-backend20220901215941.azurewebsites.net/api/conventions/';
 
 
   constructor(private httpClient: HttpClient) { }

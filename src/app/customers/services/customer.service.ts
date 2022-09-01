@@ -9,7 +9,7 @@ import { CustomerModel } from '../models/customer.model';
   providedIn: 'root'
 })
 export class CustomerService {
-  private source: string = 'https://localhost:44390/api/customers/';
+  private source: string = 'https://licenta-backend20220901215941.azurewebsites.net/api/customers/';
   
   constructor(private http: HttpClient) { }
 

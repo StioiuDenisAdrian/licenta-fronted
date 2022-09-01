@@ -8,7 +8,7 @@ import { OrderModel } from '../models/order.model';
   providedIn: 'root',
 })
 export class OrderService {
-  private source: string = 'https://localhost:44390/api/orders/';
+  private source: string = 'https://licenta-backend20220901215941.azurewebsites.net/api/orders/';
 
   constructor(private http: HttpClient) {}
 

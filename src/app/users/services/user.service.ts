@@ -12,7 +12,7 @@ import { UserAuthentication } from '../models/user-authentication.model';
   providedIn: 'root',
 })
 export class UserService {
-  private source: string = 'https://localhost:44390/api/users/';
+  private source: string = 'https://licenta-backend20220901215941.azurewebsites.net/api/users/';
   private authChangeSub = new Subject<boolean>();
   public authChanged = this.authChangeSub.asObservable();
 

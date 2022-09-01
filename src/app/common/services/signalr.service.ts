@@ -9,7 +9,7 @@ import { UserService } from 'src/app/users/services/user.service';
 })
 export class SignalrService {
   hubConnection: signalR.HubConnection;
-  public source = 'https://localhost:44390/driver';
+  public source = 'https://licenta-backend20220901215941.azurewebsites.net/driver';
 
   constructor(public dialog: MatDialog, public userService: UserService) {}
 

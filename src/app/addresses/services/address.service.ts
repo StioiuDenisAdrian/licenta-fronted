@@ -9,7 +9,7 @@ import { SelectAddressModel } from '../models/select-address.model';
   providedIn: 'root'
 })
 export class AddressService {
-  private source: string = 'https://localhost:44390/api/addresses/';
+  private source: string = 'https://licenta-backend20220901215941.azurewebsites.net/api/addresses/';
 
   constructor(private http: HttpClient) { }
 

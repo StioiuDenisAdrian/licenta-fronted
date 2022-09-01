@@ -112,7 +112,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["http://localhost:4200/", "https://localhost:44390/"],
+        allowedDomains: ["https://licenta-backend20220901215941.azurewebsites.net/", "https://mango-tree-02292ac10.1.azurestaticapps.net/"],
         disallowedRoutes:[]
       }
     })
