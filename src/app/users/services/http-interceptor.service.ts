@@ -20,6 +20,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     req = req.clone({
       setHeaders: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Access-Control-Allow-Origin': '*'
       },
     });
     return next.handle(req);
